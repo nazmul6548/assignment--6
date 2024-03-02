@@ -4,8 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    
+
+    <header class="container mx-auto">
+        <!-- nav bar start-->
+        <div class="navbar bg-base-100">
+            <div class="flex-1">
+              <a class="text-3xl font-bold">ReTro</a>
+            </div>
+            
+                
+              <div class="menu menu-horizontal px-1 gap-6">
+                <div class="group inline-block relative">
+                    <img src="./frame/Frame.png" alt="" class="bg-[#12132D08] p-2 rounded-full">
+                    <div class="hidden group-hover:block  bg-black rounded-lg text-white py-2 px-2 absolute top-10 left-0 ">Home</div>
+                </div>
+                <div class="group inline-block relative">
+                    <img src="./frame/Frame (1).png" alt="" class="bg-[#12132D08] p-2 rounded-full">
+                    <div class="hidden group-hover:block  bg-black rounded-lg text-white py-2 px-2 absolute top-10 left-0 ">Edit</div>
+                </div>
+                <div class="group inline-block relative">
+                    <img src="./frame/Frame (2).png" alt="" class="bg-[#12132D08] p-2 rounded-full">
+                    <div class="hidden group-hover:block  bg-black rounded-lg text-white py-2 px-2 absolute top-10 left-0 ">Add</div>
+                </div>
+                <div class="group inline-block relative">
+                    <img src="./frame/Frame (3).png" alt="" class="bg-[#12132D08] p-2 rounded-full">
+                    <div class="hidden group-hover:block bg-black rounded-lg text-white py-2 px-2 absolute top-10 left-0 ">Mark</div>
+                </div>
+                    
+                    
+                    
+                </div>
+                <button class="btn btn-info rounded-3xl px-10 ml-4 text-white">Sign In</button>
+            </div>
+            </div>
+          </div>
+        <!-- nav bar end -->
+
+        <!-- banner start -->
+        <div>
+            <div class="mt-10">
+               <!-- hero -->
+               <div class="hero  bg-[#12132D]"  style="background-image: url(./images/bgbanner.png);">
+                <div class="hero-overlay bg-opacity-10"></div>
+                <div class="hero-content text-center text-neutral-content">
+                  <div class="grid grid-cols-2 justify-center items-center">
+                    <div class="w-[60%] text-left">
+                        <h1 class="pt-32 text-5xl font-bold word-spacing-2">Welcome to the <br><span class="text-[#7B61FF]">ReTro</span> Forum</h1>
+                        <p class="pt-5 pb-7">ReTro Forum is a vibrant online community dedicated to celebrating all things retro while embracing the innovations of the present day.</p>
+                        <div class="pb-14">
+                            <label class="input input-bordered flex items-center rounded-3xl gap-2">
+                                <input type="text" class="grow " placeholder="Search" />
+                                <!-- <span class="badge badge-info">Optional</span> -->
+                                <button type="button" class="bg-[#797DFC] p-2 rounded-3xl px-5">Search</button>
+                              </label>
+                            
+                        </div>
+                    </div>
+                    <div class=" w-[70%] h-[300px] bg-white text-black p-10 rounded-2xl mt-8">
+                        <div class="flex justify-between pb-3">
+                            <p class="text-2xl">Registered Users</p>
+                            <p class="text-2xl">01</p>
+                        </div>
+                        <div class="flex justify-between pb-3">
+                            <p class="text-2xl">Forum</p>
+                            <p class="text-2xl">05</p>
+                        </div>
+                        <div class="flex justify-between pb-3">
+                            <p class="text-2xl">Topics</p>
+                            <p class="text-2xl">02</p>
+                        </div>
+                        <div class="flex justify-between pb-3">
+                            <p class="text-2xl">Replies</p>
+                            <p class="text-2xl">03</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+               <!-- hero -->
+            </div>
+        </div>
+        <!-- banner end -->
+
+    </header>
+    <main>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="index.js"></script>
 </body>
 </html>
