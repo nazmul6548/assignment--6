@@ -1,5 +1,5 @@
-const callMyApi = async (searchCard) => {
-    const apiLInk = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchCard}`);
+const callMyApi = async () => {
+    const apiLInk = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await apiLInk.json();
     const information = data.posts;
     // console.log(information);
@@ -65,7 +65,11 @@ info.forEach(element => {
     `
     cardContainer.appendChild(cardInfo)
 });
-toggleSpinner(false)
+
+setTimeout(() => {
+    toggleSpinner(false);
+}, 2000);
+
 }
 let count =0;
 const handleButtonClick= (title,view) => {
@@ -140,7 +144,7 @@ console.log("search");
 const inputSearch = document.getElementById('inputField').value;
  
 console.log(inputSearch);
-callMyApi(inputSearch);
+// callMyApi(inputSearch);
 }
 
 
@@ -162,4 +166,4 @@ const toggleSpinner =(load) => {
 
 callMySecondApi();
 
-callMyApi("coding");
+callMyApi();
