@@ -2,15 +2,16 @@ const callMyApi = async () => {
     const apiLInk = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts`);
     const data = await apiLInk.json();
     const information = data.posts;
-    // console.log(information);
+    console.log(information);
     cardItems(information);
 }
 
 const cardItems = (info) => {
-console.log(info);
+// console.log(info);
 const cardContainer = document.getElementById('card-container');
 cardContainer.innerText=""
 info.forEach(element => {
+    
     console.log(element);
     const cardInfo = document.createElement('div');
     cardInfo.classList=`bg-[#F3F3F5] rounded-3xl w-full  lg:w-[100%] mb-[5px]`;
@@ -66,9 +67,7 @@ info.forEach(element => {
     cardContainer.appendChild(cardInfo)
 });
 
-setTimeout(() => {
-    toggleSpinner(false);
-}, 2000);
+
 
 }
 let count =0;
@@ -94,7 +93,101 @@ div.appendChild(p);
 div.appendChild(p2);
 store.appendChild(div);
 }
+// 
 
+// search button
+const callMyThirdApi = async (categoryName) => {
+    let myThirdLink = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`);
+    let dataCol = await myThirdLink.json();
+    const stores =dataCol.posts;
+    console.log(stores);
+    
+    // 
+    
+    thirdApi(stores)
+        // 
+
+    
+}
+
+const thirdApi = (stores) => {
+    console.log(stores);
+    const cardContaine = document.getElementById('card-container');
+    cardContaine.innerText="";
+    stores.forEach(elem => {
+        console.log(elem);
+        const cartId =document.createElement('div');
+
+        cartId.classList=`bg-[#F3F3F5] rounded-3xl w-full  lg:w-[100%] mb-[5px]`;
+        cartId.innerHTML=`
+        <div class="grid grid-cols-1 gap-5 bg-[#F3F3F5] rounded-3xl w-full  lg:w-[70%]">
+        <div class="flex flex-col lg:flex-row mb-5">
+          
+           <div class="flex">
+           <div class="indicator mt-8 ml-8">
+        <span class="indicator-item badge ${elem.isActive ? 'bg-green-500' :
+        'bg-red-500'} text-white px-2 py-1 rounded-full">
+    
+        </span>
+        <div class="grid w-32 h-32 bg-base-300 place-items-center">
+            <img src ="${elem.image}" alt="" class="rounded-2xl" >
+        </div>
+        </div>
+    
+            <div>
+                <div class=" mt-10">
+                    <div class="flex text-left w-3/4 m-auto">
+                        <p class="">#${elem.category}</p>
+                        <p class="ml-14">Author : ${elem.author.name}</p>
+                          
+                      </div>
+                      <h4 class="text-center lg:text-left text-3xl pt-5 pb-5 w-full  lg:w-3/4 m-auto">${elem.title}</h4>
+                      <p class="text-center lg:text-left pb-5 w-full lg:w-3/4 m-auto">${elem.description}</p>
+                      <div class="border border-dotted border-gray-500 border-1 w-3/4 m-auto">
+                      </div>
+                      <div class="flex justify-evenly pt-10 pb-5">
+                        <div class="flex">
+                            <img src="./icon/tabler-icon-message-2.png" alt="">
+                            <p class="ml-4">${elem.comment_count}</p>
+                          </div>
+                          <div class="flex">
+                            <img src="./icon/Group 16.png" alt="">
+                            <p class="ml-4">${elem.view_count}</p>
+                          </div>
+                          <div class="flex">
+                            <img src="./icon/Group 18.png" alt="">
+                            <p class="ml-4">${elem.posted_time}</p>
+                        </div>
+                        <button onclick="handleButtonClick('${elem.title}',${elem.view_count})"><img src="./icon/Group 40106.png" alt=""> </button>
+                      </div>
+                  </div>
+                  
+            </div>
+           </div>
+              <!--  -->
+        </div>
+    </div>                                             
+        `
+        cardContaine.appendChild(cartId)
+
+
+    })
+    setTimeout(() => {
+        toggleSpinner(false);
+    }, 2000);
+}
+// search button
+// 
+const handleSearch = () => {
+    toggleSpinner(true)
+// console.log("search");
+const inputSearch = document.getElementById('inputField').value;
+ 
+// console.log(inputSearch);
+callMyThirdApi(inputSearch)
+// callMyApi(inputSearch);
+}
+// 
 // Latest 
 // Latest 
 const callMySecondApi =async () => {
@@ -106,9 +199,9 @@ const callMySecondApi =async () => {
 }
 const addLatestCard = document.getElementById('latestCard');
 const latestCard = (card) => {
-console.log(card);
+// console.log(card);
 card.forEach(element => {
-console.log(element);
+// console.log(element);
 const div =document.createElement('div');
 div.classList=`card w-full  bg-base-100 shadow-xl`;
 div.innerHTML=`
@@ -138,14 +231,10 @@ addLatestCard.appendChild(div);
 });
 }
 
-const handleSearch = () => {
-    toggleSpinner(true)
-console.log("search");
-const inputSearch = document.getElementById('inputField').value;
- 
-console.log(inputSearch);
-// callMyApi(inputSearch);
-}
+
+
+
+
 
 
 // 
@@ -162,8 +251,10 @@ const toggleSpinner =(load) => {
 //
 
 
-
-
+// callMyThirdApi()
 callMySecondApi();
 
+
+// callMyApi("comedy");
+// callMyApi("music");
 callMyApi();
