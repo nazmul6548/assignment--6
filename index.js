@@ -65,6 +65,7 @@ info.forEach(element => {
     `
     cardContainer.appendChild(cardInfo)
 });
+toggleSpinner(false)
 }
 let count =0;
 const handleButtonClick= (title,view) => {
@@ -134,13 +135,31 @@ addLatestCard.appendChild(div);
 }
 
 const handleSearch = () => {
+    toggleSpinner(true)
 console.log("search");
 const inputSearch = document.getElementById('inputField').value;
-
+ 
 console.log(inputSearch);
 callMyApi(inputSearch);
 }
 
+
+// 
+const toggleSpinner =(load) => {
+    const loadingSpinner = document.getElementById('spinnerContainer');
+    if (load) {
+
+        loadingSpinner.classList.remove('hidden');
+        
+    }else{
+        loadingSpinner.classList.add('hidden')
+    }
+}
+//
+
+
+
+
 callMySecondApi();
 
-callMyApi("music");
+callMyApi("coding");

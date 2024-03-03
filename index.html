@@ -57,7 +57,7 @@
                         <p class="pt-5 pb-7">ReTro Forum is a vibrant online community dedicated to celebrating all things retro while embracing the innovations of the present day.</p>
                         <div class="pb-14">
                             <label class="input input-bordered flex items-center rounded-3xl gap-2 text-black">
-                                <input id="inputField" type="text" class="grow " placeholder="Search" />
+                                <input id="inputField" type="text" class="grow " placeholder="search only comedy music coding" />
                                 <!-- <span class="badge badge-info">Optional</span> -->
                                 <button onclick="handleSearch()" type="button" class="bg-[#797DFC] p-2 rounded-3xl px-5">Search</button>
                               </label>
@@ -89,6 +89,7 @@
             </div>
         </div>
         <!-- banner end -->
+        
 
     </header>
     <main class="container mx-auto mt-20">
@@ -98,6 +99,11 @@
                     <h1 class="text-center text-5xl font-bold">Let’s Discuss</h1>
                     <p class="text-center w-full lg:w-3/4 m-auto mt-5">What would you like to discuss? Feel free to bring up any topic or ask any questions you're curious about. Whether it's about technology, science, philosophy, art, or anything else, I'm here to engage in a conversation with you.</p>
                 </div>
+                <!-- loading spinner -->
+                <div class="flex items-center justify-center mt-5">
+                    <span  id="spinnerContainer" class="loading loading-bars loading-lg hidden"></span>
+                </div>
+                <!-- loading spinner -->
                 <div  class=" mt-12  ">
                     <div  class="flex flex-col lg:flex-row">
                         <div id="card-container" class="w-[100%]">
