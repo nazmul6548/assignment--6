@@ -19,7 +19,7 @@ info.forEach(element => {
     <div class="grid grid-cols-1 gap-5 bg-[#F3F3F5] rounded-3xl w-full  lg:w-[70%]">
     <div class="flex flex-col lg:flex-row mb-5">
       
-       <div class="flex">
+       <div class="flex flex-col lg:flex-row">
        <div class="indicator mt-8 ml-8">
     <span class="indicator-item badge ${element.isActive ? 'bg-green-500' :
     'bg-red-500'} text-white px-2 py-1 rounded-full">
