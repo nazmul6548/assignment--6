@@ -57,9 +57,9 @@
                         <p class="pt-5 pb-7">ReTro Forum is a vibrant online community dedicated to celebrating all things retro while embracing the innovations of the present day.</p>
                         <div class="pb-14">
                             <label class="input input-bordered flex items-center rounded-3xl gap-2 text-black">
-                                <input type="text" class="grow " placeholder="Search" />
+                                <input id="inputField" type="text" class="grow " placeholder="Search" />
                                 <!-- <span class="badge badge-info">Optional</span> -->
-                                <button type="button" class="bg-[#797DFC] p-2 rounded-3xl px-5">Search</button>
+                                <button onclick="handleSearch()" type="button" class="bg-[#797DFC] p-2 rounded-3xl px-5">Search</button>
                               </label>
                             
                         </div>
@@ -143,27 +143,7 @@
                     <p class="w-full lg:w-3/4 m-auto">Step into the world of retro with our community's latest adventures. Discover, reminisce, and connect with fellow enthusiasts who share your passion for all things vintage.</p>
                 </div>
                 <!--  -->
-                <div class="mt-10">
-                    <div class="card w-full lg:w-96 bg-base-100 shadow-xl">
-                        <figure class="px-10 pt-10">
-                          <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
-                        </figure>
-                        <div class="flex items-center justify-start ml-8 mt-5">
-                            <img src="./icon/Frame.png" alt="">
-                            <p>16 january 2024</p>
-                        </div>
-                        <div class="card-body items-center text-left">
-                            
-                          <h1 class="text text-xl font-bold">fdhfddfhfghfd tghfgfdh thhth hhrthr hthrhhhhhhhhhhhhhhhh</h1>
-                          <p>If a dog chews shoes whose shoes does he choose?</p>
-                          <div class="flex items-center">
-                            <img src="./images/joinforum.png" alt="" class="w-[20%] rounded-full ">
-                            <div class="ml-3">
-                                <p class="font-bold">cameron</p>
-                                <p>unknown</p>
-                            </div>
-                          </div>
-                        </div>
+                <div id="latestCard" class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
                       </div>
                 </div>
             </div>

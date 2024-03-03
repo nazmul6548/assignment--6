@@ -1,5 +1,5 @@
-const callMyApi = async () => {
-    const apiLInk = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts#`);
+const callMyApi = async (searchCard) => {
+    const apiLInk = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchCard}`);
     const data = await apiLInk.json();
     const information = data.posts;
     // console.log(information);
@@ -8,7 +8,8 @@ const callMyApi = async () => {
 
 const cardItems = (info) => {
 console.log(info);
-const cardContainer = document.getElementById('card-container')
+const cardContainer = document.getElementById('card-container');
+cardContainer.innerText=""
 info.forEach(element => {
     console.log(element);
     const cardInfo = document.createElement('div');
@@ -16,7 +17,7 @@ info.forEach(element => {
     cardInfo.innerHTML=`
     <div class="grid grid-cols-1 gap-5 bg-[#F3F3F5] rounded-3xl w-full  lg:w-[70%]">
     <div class="flex flex-col lg:flex-row mb-5">
-       <!--  -->
+      
        <div class="flex">
        <div class="indicator mt-8 ml-8">
     <span class="indicator-item badge ${element.isActive ? 'bg-green-500' :
@@ -24,7 +25,7 @@ info.forEach(element => {
 
     </span>
     <div class="grid w-32 h-32 bg-base-300 place-items-center">
-        <img src ="${element.image}" alt="" >
+        <img src ="${element.image}" alt="" class="rounded-2xl" >
     </div>
     </div>
 
@@ -68,14 +69,6 @@ info.forEach(element => {
 let count =0;
 const handleButtonClick= (title,view) => {
     count++;
-//     const titleStore = title
-//     // console.log(titleStore);
-//     const viewStore = view;
-// console.log(viewStore);
-// const addTitle = document.getElementById('title');
-// addTitle.innerText=titleStore;
-// const addView = document.getElementById('view');
-// addView.innerText=viewStore;
 const store = document.getElementById('storeId');
 const div = document.createElement('div');
 div.style.display='flex';
@@ -97,5 +90,57 @@ div.appendChild(p2);
 store.appendChild(div);
 }
 
+// Latest 
+// Latest 
+const callMySecondApi =async () => {
+    const mysecLink = await fetch(` https://openapi.programming-hero.com/api/retro-forum/latest-posts`);
+    const document = await mysecLink.json();
+    // console.log(document);
+    latestCard(document)
 
-callMyApi();
+}
+const addLatestCard = document.getElementById('latestCard');
+const latestCard = (card) => {
+console.log(card);
+card.forEach(element => {
+console.log(element);
+const div =document.createElement('div');
+div.classList=`card w-full  bg-base-100 shadow-xl`;
+div.innerHTML=`
+<figure class="px-10 pt-10">
+                          <img src="${element.cover_image}" alt="Shoes" class="rounded-xl" />
+                        </figure>
+                        <div class="flex items-center justify-start ml-8 mt-5">
+                            <img src="./icon/Frame.png" alt="">
+                            <p>${element.author.posted_date ? element.author.posted_date : ' no publish date' }</p>
+                        </div>
+                        <div class="card-body text-left">
+                            
+                          <h1 class="text text-xl font-bold">${element.title}</h1>
+                          <p>${element.description}</p>
+                          <div class="flex items-center">
+                            <img src="${element.profile_image}" class="w-[10%] rounded-full ">
+                            <div class="ml-3">
+                                <p class="font-bold">${element.author.name}</p>
+                                <p>${element.author.designation ? element.author.designation : 'unknown'}</p>
+                            </div>
+                          </div>
+                        </div
+
+                        
+`
+addLatestCard.appendChild(div);
+});
+}
+
+const handleSearch = () => {
+console.log("search");
+const inputSearch = document.getElementById('inputField').value;
+
+console.log(inputSearch);
+callMyApi(inputSearch);
+}
+
+callMySecondApi();
+
+callMyApi("music");
