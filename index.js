@@ -67,6 +67,7 @@ info.forEach(element => {
 }
 let count =0;
 const handleButtonClick= (title,view) => {
+    count++;
 //     const titleStore = title
 //     // console.log(titleStore);
 //     const viewStore = view;
@@ -83,6 +84,10 @@ div.style.backgroundColor="#FFFFFF";
 div.style.padding="10px";
 div.style.borderRadius='10px';
 div.style.marginTop='10px';
+
+const numCount = document.getElementById('number');
+numCount.innerText=`${count}`
+
 const p = document.createElement('p');
 p.innerText=title;
 const p2 = document.createElement('p');
